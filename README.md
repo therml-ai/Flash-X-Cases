@@ -1,26 +1,31 @@
-## Laboratory Notebook and Execution Environment for Flash-X Experiments (Part of GitHub Open Source Fridays Demonstration)
+## Flash-X-Cases
+
+This repository holds case files for running Flash-X's multiphase simulations.
+
+The [boiling-data](https://github.com/therml-ai/boiling-data) repository can be used to convert
+the Flash-X outputs into the BubbleML format, create training splits, and check for errors.
 
 ## Overview
 
-This repository provides a lab notebook for running multiphase fluid dynamics simulations using Flash-X (https://flash-x.org), a multiphysics simulation software instrument. Design and organization of this notebook serves as a tutorial to setup production simulations for multiphase fluid-flow problems, archive data, perform visualization and data analysis, and maintain records/notes for scientific reproducibility and accountability. 
+This repository does not provide access to flash-x, access will be granted on request: https://flash-x.org/pages/source/
+- Flash-X has a permissive license, but the repository is kept private because the funding agency requires the developers
+to track who has access to the project. Access will more than likely be granted.
 
-## Dependencies
-
-A comprehensive lab environment to work with high-fidelity simulations should include,
-
-- A scalable and performant computational solver.
-- A well organized design of computational experiments that can handle complexities of parametric studies.
-- Visualization tools to generate animations/images.
-- Tools to extract/process information from simulation data to perform statistical/data analysis.
-
-Flash-X (https://github.com/Flash-X/Flash-X) addresses the first requirement by using AMReX (https://github.com/AMReX-Codes/amrex) $\textemdash$ a framework for block-structured Adaptive Mesh Refinement (AMR) $\textemdash$ for grid management, along with its native Application Programming Interface (API) to solve complex multiphase problems. Details of the numerical solver can be found in our previous publications,
+Details on the multiphase simulations can be found in two publications:
 
 - [A Formulation for High-Fidelity Simulations of Pool Boiling in Low Gravity](https://www.sciencedirect.com/science/article/abs/pii/S030193221930165X)
 - [An Investigation of The Gravity Effects on Pool Boiling Heat Transfer via High-Fidelity Simulations](https://www.sciencedirect.com/science/article/abs/pii/S0017931021009315?dgcid=author#!)
 
-Building Flash-X in AMReX mode requires that Message Passing Interface (MPI) library is installed and available for use on platforms where users wish to run their simulations. Path to location of the library should be defined in ``environment.sh`` located in the project root directory. Details for setting these variables are provided in subsequent sections.
+## Building
 
-Organization of computational experiments is implemented using Jobrunner, which enables reuse of files/scripts along directory trees and ensures strict organization rules. Details on Jobrunner are provided separately in its own repository (https://github.com/Lab-Notebooks/Jobrunner), and can be installed by running,
+This repo has
+1. python dependencies, which can be managed using `uv`
+2. Fortran dependencies (MPI, AMRex, HDF5, Flash-X itself). The user is required to have access to MPI already.
+the other Fortran dependencies can be built during the setup. This is described more below.
+
+### Python
+
+`uv` manages the Python 3.8+ environment and installs Jobrunner/BoxKit/click from `pyproject.toml`.
 
 ```
 uv venv
@@ -28,7 +33,7 @@ source .venv/bin/activate
 uv sync
 ```
 
-`uv` manages the Python 3.8+ environment and installs Jobrunner/BoxKit/click from `pyproject.toml`.
+### Dependencies
 
 Software dependencies for this notebook are divided into two categories: 
 
@@ -46,11 +51,9 @@ Following is a full list of dependencies:
 1. Generic: Make (4.2.1), Python3.8+, GCC (9.4.0) /Intel MPI (openmpi-4.1.1) compilers with Fortran support, HDF5 with Fortran support, Paraview, Jobrunner, BoxKit
 2. Specific: AMReX, FlashKit, Flash-X, HDF5 (if not statisfied through HPC system).
 
-Note that versions for generic softwares are listed only to enhance knowledge related to data created for the existing experiments. 
+The specific versions versions are listed for the existing experiments, generally it should work with newer versions. 
 
 ## Organization 
-
-Directory strucuture of this repository plays an important role in repoducibility and consitency of the computational experiments, and is one of the most important aspects that a user may want to focus on when extending/contributing towards current work. To understand the nuances of the design of the directory tree provided here, we recommened reading details of Jobrunner (https://arxiv.org/pdf/2308.15637.pdf). 
 
 ```
 $ tree Boiling-Simulations
@@ -78,9 +81,7 @@ The directory tree is divided into three major components $\textemdash$ software
 
 The ``software/`` component provides scripts to install software packages with compatible configuration. 
 
-The ``simulation/`` component contains specific simulations as directory objects, with the ability to configure each of them with different flavors. As an example, ``simulation/PoolBoiling`` can be configured for single and multiple bubble problems by creating sub-directories ``simulation/RisingBubble`` and ``simulation/FlowBoiling`` with their respective options, Jobfiles, and commands.
-
-The ``analysis/`` component is designed to setup data analysis and machine learning workflows and is currently a work in progress.
+The ``simulation/`` component contains specific simulations as directory objects, with the ability to configure them individually. As an example, ``simulation/PoolBoiling`` can be configured for single and multiple bubble problems by creating sub-directories ``simulation/RisingBubble`` and ``simulation/FlowBoiling`` with their respective options, Jobfiles, and commands.
 
 ## Usage
 
