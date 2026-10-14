@@ -12,6 +12,8 @@
 # from the project root, e.g.:
 #   sbatch sites/hpc3/setup.sbatch software/amrex software/flashx software/flashkit software/hdf5
 #   sbatch sites/hpc3/setup.sbatch simulation/2d/dev/RisingBubble
+# 
+# You can set the account like sbatch -A <account> sites/hpc3/setup.sbatch
 
 set -e
 
