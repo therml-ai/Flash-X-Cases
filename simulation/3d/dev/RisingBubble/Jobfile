@@ -1,0 +1,25 @@
+# YAML configuration file for `jobrunner`.
+
+# schedular options appended after the root Jobfile's, so these take precedence
+schedular:
+  options:
+    - "#SBATCH --partition=standard"
+    - "#SBATCH --ntasks=16"
+    - "#SBATCH -t 0-12:00"
+    - "#SBATCH --job-name=rb3d"
+
+# job configuration for setting up and submitting jobs,
+# archive and clean artifacts, defining target and input scripts
+job:
+  target: flashx
+  setup:
+    - flashOptions.sh
+    - flashBuild.sh
+  submit:
+    - calResources.sh
+    - flashRun.sh
+  archive:
+    - amrex.pc
+  clean:
+    - flashx
+    - amrex.pc
