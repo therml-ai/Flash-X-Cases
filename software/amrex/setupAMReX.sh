@@ -14,11 +14,11 @@ fi
 # configure and install amrex in 2D
 make clean || true
 ./configure --dim=2 --prefix=$AMREX2D_HOME
-make
+make -j $SLURM_CPUS_PER_TASK
 make install
 
 # configure and install amrex in 3D
 make clean || true
 ./configure --dim=3 --prefix=$AMREX3D_HOME
-make
+make -j $SLURM_CPUS_PER_TASK
 make install

@@ -6,7 +6,7 @@ cd $FLASHX_HOME && echo Flash-X HEAD is at $(git rev-parse --short HEAD)
 cd $FLASHX_HOME && git checkout $FlashSha && ./setup $FlashOptions
 
 # compile the simulation and copy files
-cd $FLASHX_HOME/object && make -j && cp flashx $NodeDir/
+cd $FLASHX_HOME/object && make -j $SLURM_CPUS_PER_TASK && cp flashx $NodeDir/
 
 # copy AMReX configuration
 cd $AMREX3D_HOME/lib/pkgconfig && cp amrex.pc $NodeDir/

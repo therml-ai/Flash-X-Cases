@@ -17,5 +17,5 @@ if [[ "$BuildHDF5" = true ]]; then
 		FC=mpif90 FF=mpif90 F77=mpif90 --prefix=$HDF5_HOME
 
 	# compile and install
-	make -j && make install
+	make -j $SLURM_CPUS_PER_TASK && make install
 fi

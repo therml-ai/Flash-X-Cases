@@ -13,4 +13,4 @@ fi
 # configure and install
 cd src && ./configure --enable-shared --enable-fortran --with-MPI --prefix=$HYPRE_HOME
 
-make -j && make install
+make -j $SLURM_CPUS_PER_TASK && make install
