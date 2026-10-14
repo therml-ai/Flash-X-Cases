@@ -1,0 +1,953 @@
+ FLASH log file:  09-09-2026  14:54:25.701    Run number:  1
+ ==============================================================================
+ Number of MPI tasks:                 10
+ MPI version:                          3
+ MPI subversion:                       1
+ Dimensionality:                       2
+ Max Number of Blocks/Proc:          300
+ Number x zones:                       8
+ Number y zones:                       8
+ Number z zones:                       1
+ Setup stamp:     Wed Sep 9 14:39:38 2026
+ Build stamp:     Wed Sep 9 14:52:15 2026
+ System info:     Linux hpc3-gpu-k54-00 5.14.0-611.55.1.el9_7.x86_64 #1 SMP PREEMPT_DYNAMIC Tue Ma
+ Version:         Flash-X 1.0 (heads/divergence-fix-0-g496aa368-dirty)                            
+ Build directory: /dfs6b/pub/afeeney/project/Flash-X-Development/Flash-X-Development/software/flas
+ Setup syntax:    /dfs6b/pub/afeeney/project/Flash-X-Development/Flash-X-Development/software/flashx/Flash-X/bin/setup.py incompFlow/FlowBoiling -auto -maxblocks=300 -2d -nxb=8 -nyb=8 +amrex +parallelIO +nolwf -site=/dfs6b/pub/afeeney/project/Flash-X-Development/Flash-X-Development/sites/hpc3 +incomp -tomlfile=/dfs6b/pub/afeeney/project/Flash-X-Development/Flash-X-Development/simulation/FlowBoiling/job.input --with
+ f compiler flags: /dfs6b/pub/afeeney/project/Flash-X-Development/Flash-X-Development/software/hdf5/HDF5/install-hpc3/bin/h5pfc -I/dfs6b/pub/afeeney/project/Flash-X-Development/Flash-X-Development/software/amrex/AMReX/install-hpc3/2D/include -DH5_USE_18_API -c -Ofast -fdefault-real-8 -fdefault-double-8 -Wuninitialized -fallow-argument-mismatch -ftree-vectorize -funroll-loops -fprefetch-loop-arrays -DINDEXREORDER -DM
+ c compiler flags:    /dfs6b/pub/afeeney/project/Flash-X-Development/Flash-X-Development/software/hdf5/HDF5/install-hpc3/bin/h5pcc -I/dfs6b/pub/afeeney/project/Flash-X-Development/Flash-X-Development/software/amrex/AMReX/install-hpc3/2D/include -DH5_USE_18_API -c -O2 -Wuninitialized -D_FORTIFY_SOURCE=2 -DINDEXREORDER -DMAXBLOCKS=300 -DNXB=8 -DNYB=8 -DNZB=1 -DN_DIM=2
+ ==============================================================================
+ Comment:  Flow Boiling problem
+ ==============================================================================
+ FLASH Units used:
+   Driver/DriverMain/Incomp
+   Grid/GridBoundaryConditions
+   Grid/GridMain/AMR/Amrex/Incomp
+   Grid/GridSolvers/AmrexMultigridSolver
+   Grid/localAPI
+   IO/IOMain/hdf5/AM
+   IO/IOMain/hdf5/parallel/AM
+   IO/IOMain/hdf5/writeGrid/AM
+   IO/localAPI
+   PhysicalConstants/PhysicalConstantsMain
+   RuntimeParameters/RuntimeParametersMain
+   Simulation/SimulationMain/incompFlow/FlowBoiling
+   TimeAdvance/TimeAdvanceMain/StrangSplit
+   flashUtilities/contiguousConversion
+   flashUtilities/general
+   flashUtilities/interpolation/oneDim
+   flashUtilities/nameValueLL
+   flashUtilities/system/memoryUsage/legacy
+   monitors/Logfile/LogfileMain
+   monitors/Timers/TimersMain/MPINative
+   numericalTools/Stencils/StencilsAdvection
+   numericalTools/Stencils/StencilsDiffusion
+   numericalTools/Stencils/StencilsLevelset
+   numericalTools/Stencils/StencilsMain
+   numericalTools/Stencils/StencilsTemporal
+   physics/HeatAD/HeatADAdvection
+   physics/HeatAD/HeatADMain/varDiffusion
+   physics/HeatAD/localAPI
+   physics/IncompNS/IncompNSExtras
+   physics/IncompNS/IncompNSMain/varDens/presPoisson
+   physics/IncompNS/localAPI
+   physics/Multiphase/MultiphaseEvap
+   physics/Multiphase/MultiphaseMain
+   physics/Multiphase/localAPI
+   physics/sourceTerms/Heater/HeaterMain
+   physics/sourceTerms/Heater/localAPI
+   physics/sourceTerms/Inlet/InletMain
+   physics/sourceTerms/Outlet/OutletMain/phaseForcing
+   physics/sourceTerms/Outlet/localAPI
+ ==============================================================================
+ RuntimeParameters:
+                                                                               
+ ==============================================================================
+bndpriorityone              =          1
+bndprioritythree            =          3
+bndprioritytwo              =          2
+checkpointfileintervalstep  =          0
+checkpointfilenumber        =          0
+dr_abortpause               =          2
+dr_dtminbelowaction         =          1
+drift_break_inst            =          0
+drift_trunc_mantissa        =          2
+drift_verbose_inst          =          0
+fileformatversion           =          9
+forcedplotfilenumber        =          0
+gr_amrexmg_cg_verbose       =          0
+gr_amrexmg_linop_maxorder   =          2
+gr_amrexmg_max_fmg_iter     =          0
+gr_amrexmg_max_grid_size    =         16
+gr_amrexmg_max_iter         =        200 [CHANGED]
+gr_amrexmg_max_level        =          1
+gr_amrexmg_n_cell           =         32
+gr_amrexmg_prob_type        =          1
+gr_amrexmg_ref_ratio        =          2
+gr_amrexmg_verbose          =          2
+gr_amrex_verbosity          =          1
+gr_lrefmaxtimevalue_1       =         -1
+gr_lrefmaxtimevalue_10      =         -1
+gr_lrefmaxtimevalue_11      =         -1
+gr_lrefmaxtimevalue_12      =         -1
+gr_lrefmaxtimevalue_13      =         -1
+gr_lrefmaxtimevalue_14      =         -1
+gr_lrefmaxtimevalue_15      =         -1
+gr_lrefmaxtimevalue_16      =         -1
+gr_lrefmaxtimevalue_17      =         -1
+gr_lrefmaxtimevalue_18      =         -1
+gr_lrefmaxtimevalue_19      =         -1
+gr_lrefmaxtimevalue_2       =         -1
+gr_lrefmaxtimevalue_20      =         -1
+gr_lrefmaxtimevalue_3       =         -1
+gr_lrefmaxtimevalue_4       =         -1
+gr_lrefmaxtimevalue_5       =         -1
+gr_lrefmaxtimevalue_6       =         -1
+gr_lrefmaxtimevalue_7       =         -1
+gr_lrefmaxtimevalue_8       =         -1
+gr_lrefmaxtimevalue_9       =         -1
+gr_restrictallmethod        =          3
+gr_sanitizedatamode         =          0
+gr_tilesizex                =          8
+gr_tilesizey                =          8
+gr_tilesizez                =          1
+ht_intschm                  =          2
+htr_annqueries              =          3
+htr_numheaters              =          1
+iprocs                      =          1
+ins_advschm                 =          2 [CHANGED]
+ins_cflflg                  =          1
+ins_intschm                 =          2
+ins_isgs                    =          0
+ins_velprolongmethod        =          1
+interpol_order              =          2
+jprocs                      =          1
+kprocs                      =          1
+lrefine_del                 =          0
+lrefine_max                 =          4 [CHANGED]
+lrefine_min                 =          1
+max_particles_per_blk       =        100
+memory_stat_freq            =     100000
+meshcopycount               =          1
+min_particles_per_blk       =          1
+mph_extpit                  =          5
+mph_lsit                    =          2
+nbegin                      =          1
+nblockx                     =         16 [CHANGED]
+nblocky                     =          4 [CHANGED]
+nblockz                     =          1
+nend                        =    1200000 [CHANGED]
+nrefs                       =         50 [CHANGED]
+nsteptotalsts               =          5
+outputsplitnum              =          1
+plotfileintervalstep        =          0
+plotfilenumber              =          0
+refine_var_count            =          1 [CHANGED]
+rolling_checkpoint          =          2 [CHANGED]
+sweeporder                  =        123
+wr_integrals_freq           =          1
+checkpointfileintervaltime  =                 0.100E+01
+checkpointfileintervalz     =                 0.180+309
+derefine_cutoff_1           =                 0.200E+00
+derefine_cutoff_2           =                 0.200E+00
+derefine_cutoff_3           =                 0.200E+00
+derefine_cutoff_4           =                 0.200E+00
+dr_dtmincontinue            =                 0.000E+00
+dr_tstepslowstartfactor     =                 0.100E+00
+dtinit                      =                 0.100E-03 [CHANGED]
+dtmax                       =                 0.400E-03 [CHANGED]
+dtmin                       =                 0.100E-09
+gr_amrexmg_tol              =                 0.100E-12 [CHANGED]
+gr_btworkchildscaling       =                 0.100E+01
+gr_btworkdefaultleaf        =                 0.200E+01
+gr_btworkdefaultpar         =                 0.100E+01
+gr_btworklbleaf             =                 0.000E+00
+gr_btworklbpar              =                 0.000E+00
+gr_btworkubleaf             =                 0.100E+07
+gr_btworkubpar              =                 0.100E+07
+gr_lrefinemaxredlogbase     =                 0.100E+02
+gr_lrefinemaxredradiusfact  =                 0.000E+00
+gr_lrefinemaxredtref        =                 0.000E+00
+gr_lrefinemaxredtimescale   =                 0.100E+01
+gr_lrefmaxtime_1            =                -0.100E+01
+gr_lrefmaxtime_10           =                -0.100E+01
+gr_lrefmaxtime_11           =                -0.100E+01
+gr_lrefmaxtime_12           =                -0.100E+01
+gr_lrefmaxtime_13           =                -0.100E+01
+gr_lrefmaxtime_14           =                -0.100E+01
+gr_lrefmaxtime_15           =                -0.100E+01
+gr_lrefmaxtime_16           =                -0.100E+01
+gr_lrefmaxtime_17           =                -0.100E+01
+gr_lrefmaxtime_18           =                -0.100E+01
+gr_lrefmaxtime_19           =                -0.100E+01
+gr_lrefmaxtime_2            =                -0.100E+01
+gr_lrefmaxtime_20           =                -0.100E+01
+gr_lrefmaxtime_3            =                -0.100E+01
+gr_lrefmaxtime_4            =                -0.100E+01
+gr_lrefmaxtime_5            =                -0.100E+01
+gr_lrefmaxtime_6            =                -0.100E+01
+gr_lrefmaxtime_7            =                -0.100E+01
+gr_lrefmaxtime_8            =                -0.100E+01
+gr_lrefmaxtime_9            =                -0.100E+01
+ht_nusselt                  =                 0.100E+01
+ht_prandtl                  =                 0.840E+01 [CHANGED]
+ht_tbulk                    =                 0.000E+00
+ht_twall_high               =                 0.100E+01
+ht_twall_low                =                 0.000E+00
+htr_nucseedradius           =                 0.100E+00
+in_buffer                   =                 0.100E+01
+in_growthrate               =                 0.400E+01
+in_sink                     =                -0.100E+01
+ins_cfl                     =                 0.500E-01 [CHANGED]
+ins_dpdx                    =                 0.000E+00
+ins_dpdy                    =                 0.000E+00
+ins_dpdz                    =                 0.000E+00
+ins_dtspec                  =                 0.100E-03 [CHANGED]
+ins_gravx                   =                 0.000E+00
+ins_gravy                   =                -0.100E+01 [CHANGED]
+ins_gravz                   =                 0.000E+00
+ins_inflowvelscale          =                 0.100E+01
+ins_invreynolds             =                 0.420E-02 [CHANGED]
+ins_sigma                   =                 0.500E-01 [CHANGED]
+mph_cpgas                   =                 0.830E+00 [CHANGED]
+mph_stefan                  =                 0.530E+00 [CHANGED]
+mph_tsat                    =                 0.150E+00 [CHANGED]
+mph_ipropsmear              =                 0.150E+01 [CHANGED]
+mph_invweber                =                 0.100E+01
+mph_mugas                   =                 0.100E+01
+mph_prestol                 =                 0.100E-01 [CHANGED]
+mph_rhogas                  =                 0.830E-02 [CHANGED]
+mph_scalargradx             =                 0.000E+00
+mph_scalargrady             =                 0.000E+00
+mph_scalargradz             =                 0.000E+00
+mph_temptol                 =                 0.100E-01
+mph_thcogas                 =                 0.250E+00 [CHANGED]
+nusts                       =                 0.100E+00
+out_buffer                  =                 0.200E+01 [CHANGED]
+out_growthrate              =                 0.400E+01
+out_sink                    =                -0.100E+01
+out_velrefscale             =                 0.100E+01
+plotfileintervaltime        =                 0.100E+00 [CHANGED]
+plotfileintervalz           =                 0.180+309
+refine_cutoff_1             =                 0.800E+00
+refine_cutoff_2             =                 0.800E+00
+refine_cutoff_3             =                 0.800E+00
+refine_cutoff_4             =                 0.800E+00
+refine_filter_1             =                 0.100E-01
+refine_filter_2             =                 0.100E-01
+refine_filter_3             =                 0.100E-01
+refine_filter_4             =                 0.100E-01
+rss_limit                   =                -0.100E+01
+sim_lengthscalemeters       =                 0.100E-02 [CHANGED]
+sim_timescaleseconds        =                 0.100E-01 [CHANGED]
+small                       =                 0.100E-09
+smalle                      =                 0.100E-09
+smallp                      =                 0.100E-09
+smallt                      =                 0.100E-09
+smallu                      =                 0.100E-09
+smallx                      =                 0.100E-09
+smlrho                      =                 0.100E-09
+tinitial                    =                 0.000E+00
+tmax                        =                 0.100E+02 [CHANGED]
+tstep_change_factor         =                 0.101E+01 [CHANGED]
+wall_clock_checkpoint       =                 0.432E+05
+wall_clock_time_limit       =                -0.100E+01 [CHANGED]
+x_refine_center             =                 0.000E+00
+xmax                        =                 0.500E+01 [CHANGED]
+xmin                        =                -0.500E+01 [CHANGED]
+y_refine_center             =                 0.000E+00
+ymax                        =                 0.250E+01 [CHANGED]
+ymin                        =                 0.000E+00
+zfinal                      =                 0.000E+00
+zinitial                    =                -0.100E+01
+z_refine_center             =                 0.000E+00
+zmax                        =                 0.100E+01
+zmin                        =                 0.000E+00
+amrexfaceinterpolator       = face_div_free                  [CHANGED]
+amrexinterpolator           = CELL_CONSERVATIVE_LINEAR      
+basenm                      = INS_Flow_Boiling_              [CHANGED]
+eosmode                     = dens_ie                       
+eosmodeinit                 = dens_ie                       
+geometry                    = cartesian                     
+grav_boundary_type          = isolated                      
+htr_heatername              = flow_boiling                   [CHANGED]
+log_file                    = INS_Flow_Boiling.log           [CHANGED]
+output_directory            =                               
+pc_unitsbase                = CGS                           
+plot_grid_var_1             = none                          
+plot_grid_var_10            = none                          
+plot_grid_var_11            = none                          
+plot_grid_var_12            = none                          
+plot_grid_var_13            = none                          
+plot_grid_var_14            = none                          
+plot_grid_var_15            = none                          
+plot_grid_var_16            = none                          
+plot_grid_var_17            = none                          
+plot_grid_var_18            = none                          
+plot_grid_var_19            = none                          
+plot_grid_var_2             = none                          
+plot_grid_var_20            = none                          
+plot_grid_var_21            = none                          
+plot_grid_var_22            = none                          
+plot_grid_var_23            = none                          
+plot_grid_var_24            = none                          
+plot_grid_var_25            = none                          
+plot_grid_var_26            = none                          
+plot_grid_var_27            = none                          
+plot_grid_var_28            = none                          
+plot_grid_var_29            = none                          
+plot_grid_var_3             = none                          
+plot_grid_var_30            = none                          
+plot_grid_var_31            = none                          
+plot_grid_var_32            = none                          
+plot_grid_var_33            = none                          
+plot_grid_var_34            = none                          
+plot_grid_var_35            = none                          
+plot_grid_var_36            = none                          
+plot_grid_var_37            = none                          
+plot_grid_var_38            = none                          
+plot_grid_var_39            = none                          
+plot_grid_var_4             = none                          
+plot_grid_var_40            = none                          
+plot_grid_var_41            = none                          
+plot_grid_var_42            = none                          
+plot_grid_var_43            = none                          
+plot_grid_var_44            = none                          
+plot_grid_var_45            = none                          
+plot_grid_var_46            = none                          
+plot_grid_var_47            = none                          
+plot_grid_var_48            = none                          
+plot_grid_var_49            = none                          
+plot_grid_var_5             = none                          
+plot_grid_var_50            = none                          
+plot_grid_var_51            = none                          
+plot_grid_var_52            = none                          
+plot_grid_var_53            = none                          
+plot_grid_var_54            = none                          
+plot_grid_var_55            = none                          
+plot_grid_var_56            = none                          
+plot_grid_var_57            = none                          
+plot_grid_var_58            = none                          
+plot_grid_var_59            = none                          
+plot_grid_var_6             = none                          
+plot_grid_var_60            = none                          
+plot_grid_var_61            = none                          
+plot_grid_var_62            = none                          
+plot_grid_var_63            = none                          
+plot_grid_var_64            = none                          
+plot_grid_var_65            = none                          
+plot_grid_var_66            = none                          
+plot_grid_var_67            = none                          
+plot_grid_var_68            = none                          
+plot_grid_var_69            = none                          
+plot_grid_var_7             = none                          
+plot_grid_var_70            = none                          
+plot_grid_var_71            = none                          
+plot_grid_var_72            = none                          
+plot_grid_var_73            = none                          
+plot_grid_var_74            = none                          
+plot_grid_var_75            = none                          
+plot_grid_var_76            = none                          
+plot_grid_var_77            = none                          
+plot_grid_var_78            = none                          
+plot_grid_var_8             = none                          
+plot_grid_var_9             = none                          
+plot_var_1                  = pres                           [CHANGED]
+plot_var_10                 = none                          
+plot_var_11                 = none                          
+plot_var_12                 = none                          
+plot_var_13                 = none                          
+plot_var_14                 = none                          
+plot_var_15                 = none                          
+plot_var_16                 = none                          
+plot_var_17                 = none                          
+plot_var_18                 = none                          
+plot_var_19                 = none                          
+plot_var_2                  = velx                           [CHANGED]
+plot_var_20                 = none                          
+plot_var_21                 = none                          
+plot_var_22                 = none                          
+plot_var_23                 = none                          
+plot_var_24                 = none                          
+plot_var_25                 = none                          
+plot_var_3                  = vely                           [CHANGED]
+plot_var_4                  = dfun                           [CHANGED]
+plot_var_5                  = temp                           [CHANGED]
+plot_var_6                  = none                          
+plot_var_7                  = none                          
+plot_var_8                  = none                          
+plot_var_9                  = none                          
+prof_file                   = profile.dat                   
+refine_var_1                = dfun                           [CHANGED]
+refine_var_2                = none                          
+refine_var_3                = none                          
+refine_var_4                = none                          
+run_comment                 = Flow Boiling problem           [CHANGED]
+run_number                  = 1                             
+sim_tempscaleexpr           = T_DELTA*T + T_BULK            
+stats_file                  = flashx.dat                    
+xl_boundary_type            = inflow_ins                     [CHANGED]
+xr_boundary_type            = outflow_ins                    [CHANGED]
+yl_boundary_type            = noslip_ins                     [CHANGED]
+yr_boundary_type            = slip_ins                       [CHANGED]
+zl_boundary_type            = periodic                      
+zr_boundary_type            = periodic                      
+csvsummaryallprocs          =  F
+logsummaryallprocs          =  F
+allowdtstsdominate          =  F
+alwayscomputeuservars       =  T
+alwaysrestrictcheckpoint    =  T
+chkguardcellsinput          =  F
+chkguardcellsoutput         =  F
+converttoconsvdformeshcalls =  F
+converttoconsvdinmeshinterp =  F
+corners                     =  F
+dr_printtsteploc            =  T
+dr_rununittest              =  F
+dr_shortenlaststepbeforetmax =  F
+drift_tuples                =  F
+eachprocwritesownabortlog   =  F
+eachprocwritessummary       =  F
+earlyblockdistadjustment    =  T
+enablemaskedgcfill          =  T
+flux_correct                =  T
+flux_correct_perlevel       =  T
+geometryoverride            =  F
+gr_amrexmg_agglomeration    =  T
+gr_amrexmg_composite_solve  =  T [CHANGED]
+gr_amrexmg_consolidation    =  T
+gr_amrexusebittree          =  F
+gr_bcenableapplymixedgds    =  F
+gr_bndgcfillneedsprimitivevars =  F
+gr_btcustomwork             =  F
+gr_btexchangework           =  F
+gr_btsortbywork             =  T
+gr_enabletiling             =  F
+gr_gcfillsinglevarrange     =  F
+gr_lrefinemaxbytime         =  F
+gr_lrefinemaxreddobylogr    =  F
+gr_lrefinemaxreddobytime    =  F
+gr_usetiling                =  F
+htr_showinfo                =  F
+ignoreforcedplot            =  T [CHANGED]
+ins_pressurecorrect         =  F
+io_plotfileamrexformat      =  F
+io_writemscalarintegrals    =  F
+plotfilegridquantitydp      =  F
+plotfilemetadatadp          =  F
+reducegcellfills            =  F
+refine_on_particle_count    =  F
+restart                     =  F
+summaryoutputonly           =  F
+ta_useasyncgrav             =  F
+threadblocklistbuild        =  F
+threaddelepblocklist        =  F
+threaddelepwithinblock      =  F
+threaddriverblocklist       =  F
+threaddriverwithinblock     =  F
+threadraytracebuild         =  F
+threadwithinblockbuild      =  F
+tmr_suppressinparallel      =  F
+typematchedxfer             =  T
+unbiased_geometry           =  F
+useburn                     =  F
+usecollectivehdf5           =  T
+usedeleptonize              =  F
+usegravity                  =  F
+useheatad                   =  T
+useheater                   =  T
+usehydro                    =  F
+useimbound                  =  F
+useincompns                 =  T
+useinlet                    =  T
+uselegacylabels             =  T
+usemultiphase               =  T
+useorchestration            =  F
+useoutlet                   =  T
+useparticles                =  F
+useradtrans                 =  F
+usests                      =  F
+usestsfordiffusion          =  F
+usesolidmechanics           =  F
+usestir                     =  T
+writestatsummary            =  T
+                                                                               
+ ==============================================================================
+                                                                               
+ Known units of measurement:
+                                                                               
+              Unit                          CGS Value                Base Unit
+  1                  cm                     1.0000                           cm
+  2                   s                     1.0000                            s
+  3                   g                     1.0000                            g
+  4                   K                     1.0000                            K
+  5                 esu                     1.0000                          esu
+  6                 mol                     1.0000                          mol
+  7                   m                     100.00                           cm
+  8                  km                    1.00000E+05                       cm
+  9                  pc                    3.08568E+18                       cm
+ 10                 kpc                    3.08568E+21                       cm
+ 11                 Mpc                    3.08568E+24                       cm
+ 12                 Gpc                    3.08568E+27                       cm
+ 13                Rsun                    6.96000E+10                       cm
+ 14                  AU                    1.49598E+13                       cm
+ 15                  yr                    3.15569E+07                        s
+ 16                 Myr                    3.15569E+13                        s
+ 17                 Gyr                    3.15569E+16                        s
+ 18                  kg                     1000.0                            g
+ 19                Msun                    1.98892E+33                        g
+ 20                 amu                    1.66054E-24                        g
+ 21                  eV                     11605.                            K
+ 22                   C                    2.99792E+09                      esu
+ 23                LFLY                    3.08568E+24                       cm
+ 24                TFLY                    2.05759E+17                        s
+ 25                MFLY                    9.88470E+45                        g
+ 26            clLength                    3.08568E+24                       cm
+ 27              clTime                    3.15569E+16                        s
+ 28              clMass                    1.98892E+48                        g
+ 29              clTemp                    1.16045E+07                        K
+-----------End of Units--------------------
+                                                                               
+ Known physical constants:
+                                                                               
+    Constant Name       Constant Value   cm       s        g        K        esu      mol
+  1              Newton    6.67408E-08   3.0     -2.0     -1.0      0.0      0.0      0.0    
+  2      speed of light    2.99792E+10   1.0     -1.0      0.0      0.0      0.0      0.0    
+  3              Planck    6.62607E-27   2.0     -1.0      1.0      0.0      0.0      0.0    
+  4     electron charge    4.80320E-10   0.0      0.0      0.0      0.0      1.0      0.0    
+  5       electron mass    9.10938E-28   0.0      0.0      1.0      0.0      0.0      0.0    
+  6         proton mass    1.67262E-24   0.0      0.0      1.0      0.0      0.0      0.0    
+  7      fine-structure    7.29735E-03   0.0      0.0      0.0      0.0      0.0      0.0    
+  8            Avogadro    6.02214E+23   0.0      0.0      0.0      0.0      0.0     -1.0    
+  9           Boltzmann    1.38065E-16   2.0     -2.0      1.0     -1.0      0.0      0.0    
+ 10  ideal gas constant    8.31446E+07   2.0     -2.0      1.0     -1.0      0.0     -1.0    
+ 11                Wien    0.28978       1.0      0.0      0.0      1.0      0.0      0.0    
+ 12    Stefan-Boltzmann    5.67037E-05   0.0     -3.0      1.0     -4.0      0.0      0.0    
+ 13  Radiation Constant    7.56572E-15  -1.0     -2.0      1.0     -4.0      0.0      0.0    
+ 14                  pi     3.1416       0.0      0.0      0.0      0.0      0.0      0.0    
+ 15                   e     2.7183       0.0      0.0      0.0      0.0      0.0      0.0    
+ 16               Euler    0.57722       0.0      0.0      0.0      0.0      0.0      0.0    
+ ==============================================================================
+                                                                               
+ Multifluid database: not configured in
+                                                                               
+ ==============================================================================
+ [ 09-09-2026  14:54:25.709 ] [gr_initGeometry] checking BCs for idir: 1
+ [ 09-09-2026  14:54:25.710 ] [gr_initGeometry] checking BCs for idir: 2
+ [ 09-09-2026  14:54:25.712 ] [gr_amrexInit]: AMREX_GIT_VERSION=24.08
+ [ 09-09-2026  14:54:25.787 ] [gr_initNewLevelCallback] Initialized data on level: 1
+ [ 09-09-2026  14:54:25.789 ] [gr_initNewLevelCallback] GC fill: 1
+ [ 09-09-2026  14:54:25.791 ] memory: /proc vsize    (MB):      390.73 (min)        403.05 (max)        394.40 (avg)
+ [ 09-09-2026  14:54:25.793 ] memory: /proc rss      (MB):       81.64 (min)         92.02 (max)         84.88 (avg)
+ [ 09-09-2026  14:54:25.794 ] memory: /proc vsize    (MB):      390.73 (min)        403.05 (max)        394.40 (avg)
+ [ 09-09-2026  14:54:25.796 ] memory: /proc rss      (MB):       81.64 (min)         92.02 (max)         85.03 (avg)
+ [ 09-09-2026  14:54:25.798 ] memory: /proc vsize    (MB):      390.73 (min)        403.05 (max)        394.40 (avg)
+ [ 09-09-2026  14:54:25.800 ] memory: /proc rss      (MB):       81.64 (min)         92.38 (max)         85.07 (avg)
+ [ 09-09-2026  14:54:25.885 ] [IO_writeCheckpoint] open: type=checkpoint name=INS_Flow_Boiling_hdf5_chk_0000
+ [ 09-09-2026  14:54:27.466 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:54:27.469 ] [IO_writeCheckpoint] close: type=checkpoint name=INS_Flow_Boiling_hdf5_chk_0000
+ [ 09-09-2026  14:54:27.569 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0000
+ [ 09-09-2026  14:54:28.517 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:54:28.530 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0000
+ [ 09-09-2026  14:54:28.531 ] memory: /proc vsize    (MB):      403.73 (min)        451.85 (max)        408.65 (avg)
+ [ 09-09-2026  14:54:28.533 ] memory: /proc rss      (MB):       93.01 (min)         96.73 (max)         94.12 (avg)
+ [ 09-09-2026  14:54:28.535 ] [Driver_evolveAll]: Entering evolution loop
+ [ 09-09-2026  14:54:28.536 ] [Driver_evolveAll] start-time: 0.0000000000000E+00
+ [ 09-09-2026  14:54:30.663 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0001
+ [ 09-09-2026  14:54:30.955 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:54:30.957 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0001
+ [ 09-09-2026  14:54:32.594 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0002
+ [ 09-09-2026  14:54:32.985 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:54:32.989 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0002
+ [ 09-09-2026  14:54:34.668 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0003
+ [ 09-09-2026  14:54:34.844 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:54:34.847 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0003
+ [ 09-09-2026  14:54:36.498 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0004
+ [ 09-09-2026  14:54:36.718 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:54:36.721 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0004
+ [ 09-09-2026  14:54:38.392 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0005
+ [ 09-09-2026  14:54:38.774 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:54:38.777 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0005
+ [GRID Grid_updateRefinement] min blks 6    max blks 7    tot blks 68
+ [GRID Grid_updateRefinement] min blks 6    max blks 7    tot blks 64
+ [ 09-09-2026  14:54:44.652 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0006
+ [ 09-09-2026  14:54:44.829 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:54:44.840 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0006
+ [ 09-09-2026  14:54:45.770 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0007
+ [ 09-09-2026  14:54:45.961 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:54:45.964 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0007
+ [ 09-09-2026  14:54:46.902 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0008
+ [ 09-09-2026  14:54:47.113 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:54:47.115 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0008
+ [ 09-09-2026  14:54:48.040 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0009
+ [ 09-09-2026  14:54:48.312 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:54:48.315 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0009
+ [ 09-09-2026  14:54:49.246 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0010
+ [ 09-09-2026  14:54:49.465 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:54:49.468 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0010
+ [ 09-09-2026  14:54:49.551 ] [IO_writeCheckpoint] open: type=checkpoint name=INS_Flow_Boiling_hdf5_chk_0001
+ [ 09-09-2026  14:54:50.943 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:54:50.946 ] [IO_writeCheckpoint] close: type=checkpoint name=INS_Flow_Boiling_hdf5_chk_0001
+ [ 09-09-2026  14:54:51.864 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0011
+ [ 09-09-2026  14:54:52.053 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:54:52.056 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0011
+ [ 09-09-2026  14:54:52.981 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0012
+ [ 09-09-2026  14:54:53.346 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:54:53.349 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0012
+ [ 09-09-2026  14:54:54.271 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0013
+ [ 09-09-2026  14:54:54.562 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:54:54.564 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0013
+ [ 09-09-2026  14:54:55.485 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0014
+ [ 09-09-2026  14:54:55.693 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:54:55.696 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0014
+ [ 09-09-2026  14:54:56.615 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0015
+ [ 09-09-2026  14:54:57.138 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:54:57.141 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0015
+ [ 09-09-2026  14:54:58.054 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0016
+ [ 09-09-2026  14:54:58.269 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:54:58.273 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0016
+ [ 09-09-2026  14:54:59.314 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0017
+ [ 09-09-2026  14:54:59.565 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:54:59.568 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0017
+ [ 09-09-2026  14:55:00.501 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0018
+ [ 09-09-2026  14:55:01.005 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:55:01.009 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0018
+ [ 09-09-2026  14:55:01.947 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0019
+ [ 09-09-2026  14:55:02.193 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:55:02.195 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0019
+ [ 09-09-2026  14:55:03.144 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0020
+ [ 09-09-2026  14:55:03.321 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:55:03.323 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0020
+ [ 09-09-2026  14:55:03.449 ] [IO_writeCheckpoint] open: type=checkpoint name=INS_Flow_Boiling_hdf5_chk_0000
+ [ 09-09-2026  14:55:05.003 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:55:05.007 ] [IO_writeCheckpoint] close: type=checkpoint name=INS_Flow_Boiling_hdf5_chk_0000
+ [ 09-09-2026  14:55:05.957 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0021
+ [ 09-09-2026  14:55:06.375 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:55:06.378 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0021
+ [ 09-09-2026  14:55:07.318 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0022
+ [ 09-09-2026  14:55:07.638 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:55:07.641 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0022
+ [ 09-09-2026  14:55:08.635 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0023
+ [ 09-09-2026  14:55:09.185 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:55:09.188 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0023
+ [ 09-09-2026  14:55:10.129 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0024
+ [ 09-09-2026  14:55:10.350 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:55:10.353 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0024
+ [ 09-09-2026  14:55:11.299 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0025
+ [ 09-09-2026  14:55:11.530 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:55:11.532 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0025
+ [ 09-09-2026  14:55:12.460 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0026
+ [ 09-09-2026  14:55:12.707 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:55:12.711 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0026
+ [ 09-09-2026  14:55:13.670 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0027
+ [ 09-09-2026  14:55:13.931 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:55:13.937 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0027
+ [ 09-09-2026  14:55:14.871 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0028
+ [ 09-09-2026  14:55:15.360 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:55:15.366 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0028
+ [ 09-09-2026  14:55:16.291 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0029
+ [ 09-09-2026  14:55:16.503 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:55:16.506 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0029
+ [ 09-09-2026  14:55:17.416 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0030
+ [ 09-09-2026  14:55:17.603 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:55:17.606 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0030
+ [ 09-09-2026  14:55:17.699 ] [IO_writeCheckpoint] open: type=checkpoint name=INS_Flow_Boiling_hdf5_chk_0001
+ [ 09-09-2026  14:55:19.493 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:55:19.496 ] [IO_writeCheckpoint] close: type=checkpoint name=INS_Flow_Boiling_hdf5_chk_0001
+ [ 09-09-2026  14:55:20.434 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0031
+ [ 09-09-2026  14:55:20.602 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:55:20.607 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0031
+ [ 09-09-2026  14:55:21.539 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0032
+ [ 09-09-2026  14:55:21.698 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:55:21.700 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0032
+ [ 09-09-2026  14:55:22.620 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0033
+ [ 09-09-2026  14:55:22.842 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:55:22.845 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0033
+ [ 09-09-2026  14:55:23.763 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0034
+ [ 09-09-2026  14:55:23.949 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:55:23.952 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0034
+ [ 09-09-2026  14:55:24.862 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0035
+ [ 09-09-2026  14:55:25.105 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:55:25.108 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0035
+ [ 09-09-2026  14:55:26.020 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0036
+ [ 09-09-2026  14:55:26.187 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:55:26.190 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0036
+ [ 09-09-2026  14:55:27.111 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0037
+ [ 09-09-2026  14:55:27.380 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:55:27.382 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0037
+ [ 09-09-2026  14:55:28.475 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0038
+ [ 09-09-2026  14:55:28.744 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:55:28.747 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0038
+ [ 09-09-2026  14:55:29.799 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0039
+ [ 09-09-2026  14:55:29.979 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:55:29.982 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0039
+ [ 09-09-2026  14:55:30.922 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0040
+ [ 09-09-2026  14:55:31.114 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:55:31.140 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0040
+ [ 09-09-2026  14:55:31.273 ] [IO_writeCheckpoint] open: type=checkpoint name=INS_Flow_Boiling_hdf5_chk_0000
+ [ 09-09-2026  14:55:32.589 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:55:32.591 ] [IO_writeCheckpoint] close: type=checkpoint name=INS_Flow_Boiling_hdf5_chk_0000
+ [ 09-09-2026  14:55:33.497 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0041
+ [ 09-09-2026  14:55:33.769 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:55:33.772 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0041
+ [ 09-09-2026  14:55:34.748 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0042
+ [ 09-09-2026  14:55:34.901 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:55:34.903 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0042
+ [ 09-09-2026  14:55:35.819 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0043
+ [ 09-09-2026  14:55:36.083 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:55:36.087 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0043
+ [ 09-09-2026  14:55:36.995 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0044
+ [ 09-09-2026  14:55:37.245 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:55:37.248 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0044
+ [ 09-09-2026  14:55:38.177 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0045
+ [ 09-09-2026  14:55:38.373 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:55:38.376 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0045
+ [ 09-09-2026  14:55:39.317 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0046
+ [ 09-09-2026  14:55:39.557 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:55:39.560 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0046
+ [ 09-09-2026  14:55:40.474 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0047
+ [ 09-09-2026  14:55:40.864 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:55:40.867 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0047
+ [ 09-09-2026  14:55:41.785 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0048
+ [ 09-09-2026  14:55:41.964 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:55:41.967 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0048
+ [ 09-09-2026  14:55:42.882 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0049
+ [ 09-09-2026  14:55:50.093 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:55:50.097 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0049
+ [ 09-09-2026  14:55:51.005 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0050
+ [ 09-09-2026  14:55:56.943 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:55:56.946 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0050
+ [ 09-09-2026  14:55:57.047 ] [IO_writeCheckpoint] open: type=checkpoint name=INS_Flow_Boiling_hdf5_chk_0001
+ [ 09-09-2026  14:55:58.131 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:55:58.135 ] [IO_writeCheckpoint] close: type=checkpoint name=INS_Flow_Boiling_hdf5_chk_0001
+ [ 09-09-2026  14:55:59.054 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0051
+ [ 09-09-2026  14:56:02.825 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:56:02.856 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0051
+ [ 09-09-2026  14:56:03.755 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0052
+ [ 09-09-2026  14:56:03.944 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:56:03.964 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0052
+ [ 09-09-2026  14:56:04.876 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0053
+ [ 09-09-2026  14:56:05.288 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:56:05.290 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0053
+ [ 09-09-2026  14:56:06.234 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0054
+ [ 09-09-2026  14:56:10.641 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:56:10.822 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0054
+ [ 09-09-2026  14:56:21.653 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0055
+ [ 09-09-2026  14:56:22.457 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:56:22.612 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0055
+ [ 09-09-2026  14:56:34.977 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0056
+ [ 09-09-2026  14:56:35.418 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:56:35.652 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0056
+ [ 09-09-2026  14:56:46.177 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0057
+ [ 09-09-2026  14:56:47.703 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:56:47.901 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0057
+ [ 09-09-2026  14:56:57.287 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0058
+ [ 09-09-2026  14:56:57.531 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:56:57.702 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0058
+ [ 09-09-2026  14:56:58.776 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0059
+ [ 09-09-2026  14:56:58.938 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:56:58.941 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0059
+ [ 09-09-2026  14:56:59.866 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0060
+ [ 09-09-2026  14:57:00.103 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:00.106 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0060
+ [ 09-09-2026  14:57:00.291 ] [IO_writeCheckpoint] open: type=checkpoint name=INS_Flow_Boiling_hdf5_chk_0000
+ [ 09-09-2026  14:57:02.516 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:02.519 ] [IO_writeCheckpoint] close: type=checkpoint name=INS_Flow_Boiling_hdf5_chk_0000
+ [ 09-09-2026  14:57:03.431 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0061
+ [ 09-09-2026  14:57:03.651 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:03.654 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0061
+ [ 09-09-2026  14:57:04.562 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0062
+ [ 09-09-2026  14:57:04.850 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:04.853 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0062
+ [ 09-09-2026  14:57:05.761 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0063
+ [ 09-09-2026  14:57:06.029 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:06.032 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0063
+ [ 09-09-2026  14:57:06.960 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0064
+ [ 09-09-2026  14:57:07.114 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:07.117 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0064
+ [ 09-09-2026  14:57:08.038 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0065
+ [ 09-09-2026  14:57:08.296 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:08.298 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0065
+ [ 09-09-2026  14:57:09.217 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0066
+ [ 09-09-2026  14:57:09.419 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:09.422 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0066
+ [ 09-09-2026  14:57:10.334 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0067
+ [ 09-09-2026  14:57:10.527 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:10.530 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0067
+ [ 09-09-2026  14:57:11.466 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0068
+ [ 09-09-2026  14:57:11.673 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:11.676 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0068
+ [ 09-09-2026  14:57:12.590 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0069
+ [ 09-09-2026  14:57:12.879 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:12.883 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0069
+ [ 09-09-2026  14:57:13.818 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0070
+ [ 09-09-2026  14:57:14.113 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:14.116 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0070
+ [ 09-09-2026  14:57:14.230 ] [IO_writeCheckpoint] open: type=checkpoint name=INS_Flow_Boiling_hdf5_chk_0001
+ [ 09-09-2026  14:57:15.216 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:15.219 ] [IO_writeCheckpoint] close: type=checkpoint name=INS_Flow_Boiling_hdf5_chk_0001
+ [ 09-09-2026  14:57:16.142 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0071
+ [ 09-09-2026  14:57:16.347 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:16.350 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0071
+ [ 09-09-2026  14:57:17.326 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0072
+ [ 09-09-2026  14:57:17.662 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:17.665 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0072
+ [ 09-09-2026  14:57:18.603 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0073
+ [ 09-09-2026  14:57:18.761 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:18.764 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0073
+ [ 09-09-2026  14:57:19.692 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0074
+ [ 09-09-2026  14:57:19.832 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:19.835 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0074
+ [ 09-09-2026  14:57:20.757 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0075
+ [ 09-09-2026  14:57:20.989 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:21.038 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0075
+ [ 09-09-2026  14:57:21.964 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0076
+ [ 09-09-2026  14:57:22.241 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:22.244 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0076
+ [ 09-09-2026  14:57:23.154 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0077
+ [ 09-09-2026  14:57:23.460 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:23.463 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0077
+ [ 09-09-2026  14:57:24.467 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0078
+ [ 09-09-2026  14:57:24.715 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:24.719 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0078
+ [ 09-09-2026  14:57:25.648 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0079
+ [ 09-09-2026  14:57:25.865 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:25.868 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0079
+ [ 09-09-2026  14:57:26.765 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0080
+ [ 09-09-2026  14:57:27.004 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:27.007 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0080
+ [ 09-09-2026  14:57:27.109 ] [IO_writeCheckpoint] open: type=checkpoint name=INS_Flow_Boiling_hdf5_chk_0000
+ [ 09-09-2026  14:57:28.213 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:28.216 ] [IO_writeCheckpoint] close: type=checkpoint name=INS_Flow_Boiling_hdf5_chk_0000
+ [ 09-09-2026  14:57:29.113 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0081
+ [ 09-09-2026  14:57:29.346 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:29.349 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0081
+ [ 09-09-2026  14:57:30.295 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0082
+ [ 09-09-2026  14:57:30.476 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:30.495 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0082
+ [ 09-09-2026  14:57:31.406 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0083
+ [ 09-09-2026  14:57:31.675 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:31.678 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0083
+ [ 09-09-2026  14:57:32.612 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0084
+ [ 09-09-2026  14:57:32.791 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:32.794 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0084
+ [ 09-09-2026  14:57:33.708 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0085
+ [ 09-09-2026  14:57:34.200 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:34.203 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0085
+ [ 09-09-2026  14:57:35.151 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0086
+ [ 09-09-2026  14:57:35.369 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:35.372 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0086
+ [ 09-09-2026  14:57:36.336 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0087
+ [ 09-09-2026  14:57:36.559 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:36.563 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0087
+ [ 09-09-2026  14:57:37.505 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0088
+ [ 09-09-2026  14:57:37.838 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:37.841 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0088
+ [ 09-09-2026  14:57:38.766 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0089
+ [ 09-09-2026  14:57:38.936 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:38.938 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0089
+ [ 09-09-2026  14:57:39.862 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0090
+ [ 09-09-2026  14:57:40.009 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:40.012 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0090
+ [ 09-09-2026  14:57:40.119 ] [IO_writeCheckpoint] open: type=checkpoint name=INS_Flow_Boiling_hdf5_chk_0001
+ [ 09-09-2026  14:57:41.207 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:41.210 ] [IO_writeCheckpoint] close: type=checkpoint name=INS_Flow_Boiling_hdf5_chk_0001
+ [ 09-09-2026  14:57:42.154 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0091
+ [ 09-09-2026  14:57:42.289 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:42.292 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0091
+ [ 09-09-2026  14:57:43.245 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0092
+ [ 09-09-2026  14:57:43.582 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:43.585 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0092
+ [ 09-09-2026  14:57:44.488 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0093
+ [ 09-09-2026  14:57:44.688 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:44.690 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0093
+ [ 09-09-2026  14:57:45.610 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0094
+ [ 09-09-2026  14:57:45.921 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:45.924 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0094
+ [ 09-09-2026  14:57:46.831 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0095
+ [ 09-09-2026  14:57:46.997 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:47.000 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0095
+ [ 09-09-2026  14:57:47.928 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0096
+ [ 09-09-2026  14:57:48.126 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:48.129 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0096
+ [ 09-09-2026  14:57:49.063 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0097
+ [ 09-09-2026  14:57:49.455 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:49.458 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0097
+ [ 09-09-2026  14:57:50.364 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0098
+ [ 09-09-2026  14:57:50.551 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:50.554 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0098
+ [ 09-09-2026  14:57:51.468 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0099
+ [ 09-09-2026  14:57:51.664 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:51.668 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0099
+ [ 09-09-2026  14:57:52.619 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0100
+ [ 09-09-2026  14:57:52.930 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:52.934 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0100
+ [ 09-09-2026  14:57:53.048 ] [IO_writeCheckpoint] open: type=checkpoint name=INS_Flow_Boiling_hdf5_chk_0000
+ [ 09-09-2026  14:57:54.975 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:54.978 ] [IO_writeCheckpoint] close: type=checkpoint name=INS_Flow_Boiling_hdf5_chk_0000
+ [ 09-09-2026  14:57:54.981 ] [Driver_evolveAll] end-time: 1.0000139676504E+01
+ [ 09-09-2026  14:57:54.982 ] [Driver_evolveAll]: Exiting evolution loop
+ [ 09-09-2026  14:57:55.072 ] [IO_writePlotfile] open: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0101
+ [ 09-09-2026  14:57:55.288 ] [io_writeData]: wrote      64          blocks
+ [ 09-09-2026  14:57:55.291 ] [IO_writePlotfile] close: type=plotfile name=INS_Flow_Boiling_hdf5_plt_cnt_0101
+ [ 09-09-2026  14:57:55.293 ] memory: /proc vsize    (MB):      404.36 (min)        451.85 (max)        409.42 (avg)
+ [ 09-09-2026  14:57:55.294 ] memory: /proc rss      (MB):       95.42 (min)         97.54 (max)         96.15 (avg)
+ ==============================================================================
+ perf_summary: code performance summary for process            0
+                      beginning : 09-09-2026  14:54:25
+                         ending : 09-09-2026  14:57:55
+   seconds in monitoring period :              209.595
+      number of evolution steps :                26517
+ ------------------------------------------------------------------------------
+ accounting unit                       time sec  num calls   secs avg  time pct
+ ------------------------------------------------------------------------------
+ initialization                          2.834      1           2.834     1.352
+  eos initNewLevel                       0.000      1           0.000     0.000
+  gr_multigridAmrexInit                  0.000      1           0.000     0.000
+  writeCheckpoint                        1.667      1           1.667     0.796
+  writePlotfile                          1.059      1           1.059     0.505
+   io_writeGrid                          0.010      1           0.010     0.005
+ writePlotfile                           0.306      1           0.306     0.146
+ evolution                             206.422 371139           0.001    98.486
+  guardcell internal                    22.140 397758           0.000    10.563
+   amr_guardcell                        21.826 397758           0.000    10.413
+    gc unk                              15.987 344724           0.000     7.628
+    gc facevars                          5.686 106069           0.000     2.713
+  Heater_mapSitesToProc                  0.000      3           0.000     0.000
+  Multiphase_reInitGridVars              0.101 185569           0.000     0.048
+  IncompNS_reInitGridVars                0.236 185569           0.000     0.113
+  HeatAD_reInitGridVars                  0.084 185569           0.000     0.040
+  Heater_checkSites                      0.275 185569           0.000     0.131
+  Heater_tagSites                        0.009  26517           0.000     0.004
+  Heater_lsReInit                        0.323 185569           0.000     0.154
+  Multiphase_setFluidProps               1.792 185569           0.000     0.855
+  Multiphase_setThermalProp              0.087 185569           0.000     0.042
+  Multiphase_setPressureJum              0.178 185569           0.000     0.085
+  Multiphase_thermalForcing              0.316 185569           0.000     0.151
+  Multiphase_extrapFluxes                1.804 927845           0.000     0.861
+  Multiphase_setMassFlux                 0.086 185569           0.000     0.041
+  Outlet_setForcing                      1.343 185569           0.000     0.641
+  IncompNS_advection                     0.277 185569           0.000     0.132
+  IncompNS_diffusion                     0.206 185569           0.000     0.098
+  IncompNS_predictor                     0.279 185569           0.000     0.133
+  Multiphase_divergence                  0.242 371138           0.000     0.116
+  IncompNS_setupPoisson                  0.233 185569           0.000     0.111
+  Grid_solvePoisson                     17.398  26517           0.001     8.301
+  IncompNS_corrector                     0.247 185569           0.000     0.118
+  HeatAD_diffusion                       0.130 185569           0.000     0.062
+  HeatAD_advection                       0.934 185569           0.000     0.446
+  HeatAD_solve                           0.119 185569           0.000     0.057
+  Multiphase_advection                   1.142 185569           0.000     0.545
+  Multiphase_solve                       0.087 185569           0.000     0.042
+  Multiphase_redistance                  0.378 371138           0.000     0.181
+  IO_output                            110.736  26517           0.004    52.833
+   diagnostics                           0.015  26517           0.000     0.007
+   plotfile                             98.358    100           0.984    46.928
+    writePlotfile                       96.911    100           0.969    46.237
+     io_writeGrid                        0.008      1           0.008     0.004
+  io                                    27.465  26517           0.001    13.104
+   diagnostics                           0.011  26517           0.000     0.005
+   checkpointing                        15.656     10           1.566     7.470
+    writeCheckpoint                     15.634     10           1.563     7.459
+  Grid_updateRefinement                  0.108    530           0.000     0.052
+ ==============================================================================

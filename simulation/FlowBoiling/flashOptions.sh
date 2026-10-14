@@ -1,6 +1,6 @@
 # cache the value of current working directory
 
-FlashSha="adhruv/development"
+FlashSha="main"
 
 FlashOptions="incompFlow/FlowBoiling -auto -maxblocks=300 -2d -nxb=8 -nyb=8 \
               +amrex +parallelIO +nolwf -site=$SiteHome +incomp -tomlfile=$JobWorkDir/job.input --with-unitmods"

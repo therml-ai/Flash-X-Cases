@@ -7,6 +7,10 @@ dependencies = [
     "click",
     "boxkit",
     "pyjobrunner",
+    "toml",
+    "numpy",
+    "h5py",
+    "scipy",
     # pyjobrunner imports pkg_resources (jobrunner/cli/_jobrunner.py) but doesn't
     # declare setuptools as a dependency itself. setuptools>=82 dropped pkg_resources.
     "setuptools<82",

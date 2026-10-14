@@ -1,6 +1,6 @@
 # cache the value of current working directory
 
-FlashSha="adhruv/development"
+FlashSha="main"
 
 FlashOptions="incompFlow/ChannelFlow -auto \
               -maxblocks=1000 -2d -nxb=16 -nyb=16 \

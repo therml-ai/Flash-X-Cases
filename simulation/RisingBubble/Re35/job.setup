@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -e
+
+export JobWorkDir="/Users/afeeney/Project/therml/Flash-X-Development/simulation/RisingBubble/Re35"
+
+cd /Users/afeeney/Project/therml/Flash-X-Development
+

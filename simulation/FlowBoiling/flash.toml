@@ -59,7 +59,7 @@
   ins_dtSpec = 0.1e-3
   ins_pressureCorrect = false
   ins_intSchm = 2
-  ins_advSchm = 2
+  ins_advSchm = 105
 
 [Outlet]
   out_buffer = 2.0

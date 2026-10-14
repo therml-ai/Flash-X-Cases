@@ -16,7 +16,7 @@ Details on the multiphase simulations can be found in two publications:
 - [A Formulation for High-Fidelity Simulations of Pool Boiling in Low Gravity](https://www.sciencedirect.com/science/article/abs/pii/S030193221930165X)
 - [An Investigation of The Gravity Effects on Pool Boiling Heat Transfer via High-Fidelity Simulations](https://www.sciencedirect.com/science/article/abs/pii/S0017931021009315?dgcid=author#!)
 
-## Building
+## Project Setup
 
 This repo has
 1. python dependencies, which can be managed using `uv`
