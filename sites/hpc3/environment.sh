@@ -5,8 +5,8 @@ export UCX_TLS=rc,mm
 export UCX_NET_DEVICES=mlx5_0:1
 
 # Load GCC and openmpi
-module load gcc/11.2.0
-module load openmpi/5.0.1/gcc.11.2.0
+module load gcc/15.2.0
+module load openmpi/5.0.9/gcc.15.2.0
 
 source $PROJECT_HOME/.venv/bin/activate
 
