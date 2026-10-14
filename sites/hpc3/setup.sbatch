@@ -3,7 +3,7 @@
 #SBATCH --partition=standard
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=8
+#SBATCH --cpus-per-task=20
 #SBATCH --time=04:00:00
 #SBATCH --output=setup-%j.out
 #SBATCH --error=setup-%j.err
