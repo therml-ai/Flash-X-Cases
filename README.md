@@ -81,7 +81,7 @@ The directory tree is divided into three major components $\textemdash$ software
 
 The ``software/`` component provides scripts to install software packages with compatible configuration. 
 
-The ``simulation/`` component contains specific simulations as directory objects, with the ability to configure them individually. As an example, ``simulation/PoolBoiling`` can be configured for single and multiple bubble problems by creating sub-directories ``simulation/RisingBubble`` and ``simulation/FlowBoiling`` with their respective options, Jobfiles, and commands.
+The ``simulation/`` component contains specific simulations as directory objects, with the ability to configure them individually. Simulations are grouped by dimensionality under ``simulation/2d/`` and ``simulation/3d/``, and development and test cases are kept in a ``dev/`` subdirectory of each. 
 
 ## Usage
 
@@ -102,20 +102,20 @@ This command will checkout appropriate SHA-1 for Flash-X, AMReX, and FlashKit, a
 Setting up a simulation is done in similar way by running setup command as,
 
 ```
-jobrunner setup simulation/RisingBubble --verbose
+jobrunner setup simulation/2d/dev/RisingBubble --verbose
 ```
 
 and then running it using,
 
 ```
-jobrunner submit simulation/RisingBubble --verbose
+jobrunner submit simulation/2d/dev/RisingBubble --verbose
 ```
 
 Make sure to edit Jobfiles as desired to change/update your schedular configuration.
 
 TIP: use `--show` with `jobrunner setup` and `jobrunner submit` to see the parsed configuration for a working directory derived from Jobfiles along the directory tree.
 
-To visualize data using ParaView run following from the directory simulation/RisingBubble,
+To visualize data using ParaView run following from the directory simulation/2d/dev/RisingBubble,
 
 ```
 flashkit create xdmf -b <begin_number> -e <end_number>

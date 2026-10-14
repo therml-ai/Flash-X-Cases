@@ -11,7 +11,7 @@
 # Run `./configure -s hpc3` once beforehand so config.sh exists, then submit
 # from the project root, e.g.:
 #   sbatch sites/hpc3/setup.sbatch software/amrex software/flashx software/flashkit software/hdf5
-#   sbatch sites/hpc3/setup.sbatch simulation/RisingBubble
+#   sbatch sites/hpc3/setup.sbatch simulation/2d/dev/RisingBubble
 
 set -e
 
