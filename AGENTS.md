@@ -76,7 +76,7 @@ in the case directory.
 Example, the 2D single bubble pool boiling cases, which share one executable:
 
 ```console
-python simulation/2d/PoolBoiling/SingleBubble-FC72-2D/generate_cases.py --wall_temp 80 90 100
+simulation/2d/PoolBoiling/SingleBubble-FC72-2D/generate.sh
 jobrunner setup simulation/2d/PoolBoiling/SingleBubble-FC72-2D --verbose
 jobrunner submit simulation/2d/PoolBoiling/SingleBubble-FC72-2D/case-twall-100 --verbose
 ```
@@ -89,9 +89,10 @@ jobrunner submit simulation/2d/PoolBoiling/SingleBubble-FC72-2D/case-twall-100 -
 - Builds use `make -j $SLURM_CPUS_PER_TASK`, so they are meant to run inside a Slurm allocation.
 - Files `jobrunner` writes (`job.setup`, `job.submit`, `job.target`, `job.input`, `job.output`) are
   generated; do not edit them. Change the Jobfile or the scripts it lists instead.
-- Generated case directories are not edited by hand. For example, every `case-twall-*` directory of
-  `SingleBubble-FC72-2D` comes from `generate_cases.py`: change the base `flash.toml` or the script,
-  then regenerate with `--force`.
+- Generated case directories are not edited by hand or committed. A study built from cases, such as
+  `SingleBubble-FC72-2D`, keeps a `generate.sh` that calls its `generate_cases.py` with the cases it
+  runs; its `case-*` directories are git-ignored. To change the cases, edit the base `flash.toml`,
+  `generate_cases.py`, or the arguments in `generate.sh`, then rerun `generate.sh`.
 - cases should have a `parameters.json` file that tracks every parameter.
 - `flash.toml` cases: `flashInput.py` merges the base and the case `flash.toml` into `flash.par` at
   submit, applying the case's `[Override.<Unit>]` tables. An override must name a parameter already set
