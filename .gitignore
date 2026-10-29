@@ -7,6 +7,13 @@ amr_*
 *hdf5*
 Backtrace*
 job.target
+# written by jobrunner setup and submit
+job.setup
+job.submit
+job.input
+job.output
+# case directories, written by each study's generate.sh
+case-*/
 flashx
 unitTest*
 core*
