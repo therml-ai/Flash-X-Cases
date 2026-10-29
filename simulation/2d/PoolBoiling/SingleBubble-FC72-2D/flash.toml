@@ -1,0 +1,129 @@
+# Input file to set runtime parameters
+#
+# Passed to Flash-X setup with -tomlfile, which writes flash.par and,
+# with --with-unitmods, the heater file pool_boiling_hdf5_htr_0001.
+# Each parameter has to be listed under the unit that defines it.
+#
+# This is the base for the case-twall-* directories written by
+# generate_cases.py. Cases set their values in [Override.<Unit>] tables, and
+# at submit flashInput.py merges a case's flash.toml with this file, applies
+# the overrides (each must already be set here, so setup has checked it) and
+# writes the case's flash.par. Don't add [Override.*] or [Physical] tables
+# here.
+
+[Heater]
+  htr_heaterName = "pool_boiling"
+  htr_numHeaters = 1
+  htr_nucSeedRadius = 0.15
+  htr_showInfo = false
+
+[Heater.0001]
+  dim = 1
+  xmin = -2.0
+  xmax = 2.0
+  ymin = 0.0
+  ymax = 1e-13
+  zmin = -2.0
+  zmax = 2.0
+  # the bulk liquid is saturated, so T* = 1 at the heater for every case
+  wallTemp = 1.0
+  advAngle = 45.0
+  rcdAngle = 45.0
+  velContact = 0.2
+  nucWaitTime = 0.4
+  numSites = 1
+  nucSeedRadius = 0.15
+
+[Logfile]
+  run_comment = "Pool Boiling problem"
+  log_file = "INS_Pool_Boiling.log"
+
+[Grid]
+  geometry = "cartesian"
+  xmin = 0.0
+  xmax = 2.0
+  ymin = 0.0
+  ymax = 6.0
+  zmin = 0.0
+  zmax = 2.0
+  xl_boundary_type = "slip_ins"
+  xr_boundary_type = "noslip_ins"
+  yl_boundary_type = "noslip_ins"
+  yr_boundary_type = "outflow_ins"
+  zl_boundary_type = "slip_ins"
+  zr_boundary_type = "noslip_ins"
+  gr_amrexMG_composite_solve = true
+  gr_amrexMG_Tol = 1e-13
+  gr_amrexMG_max_iter = 200
+  gr_amrexMG_verbose = 1
+  nblockx = 6
+  nblocky = 18
+  nblockz = 6
+  nrefs = 10000000
+  lrefine_min = 1
+  lrefine_max = 1
+  flux_correct = true
+
+# Saturated FC-72 at 1 atm: the dimensionless groups of the BubbleML
+# PoolBoiling-Saturated-FC72-2D dataset. mph_Stefan depends on the wall
+# temperature and is set per case by generate_cases.py.
+[IncompNS]
+  ins_invReynolds = 0.004315
+  ins_gravY = -1.0
+  ins_cflFlg = 0
+  ins_cfl = 0.05
+  ins_sigma = 0.05
+  ins_dtSpec = 1.0e-4
+  ins_pressureCorrect = false
+  ins_intSchm = 2
+
+[Multiphase]
+  mph_rhoGas = 0.008687
+  mph_muGas = 0.02816
+  mph_thcoGas = 0.209
+  mph_CpGas = 0.7997
+  mph_iPropSmear = 1.5
+  mph_invWeber = 1.0
+  mph_Stefan = 0.0
+  mph_Tsat = 0.0
+
+[HeatAD]
+  ht_Prandtl = 7.35
+
+[Outlet]
+  out_sink = -1.0
+  out_buffer = 1.0
+
+# Flash-X defaults, set per case from the FC72 table in generate_cases.py.
+# Flash-X stores them with the run's parameters in its output files.
+[Simulation]
+  sim_lengthScaleMeters = 1.0
+  sim_timeScaleSeconds = 1.0
+  sim_tempScaleExpr = "T_DELTA*T + T_BULK"
+
+[Driver]
+  restart = false
+  nend = 10000000
+  tmax = 200.0
+  dtinit = 1.0e-4
+  dtmax = 1.0e-4
+  tstep_change_factor = 1.01
+
+[IO]
+  basenm = "INS_Pool_Boiling_"
+  checkpointFileNumber = 0
+  checkpointFileIntervalTime = 5.0
+  plotFileNumber = 0
+  plotFileIntervalTime = 0.1
+  plot_var_1 = "pres"
+  plot_var_2 = "velx"
+  plot_var_3 = "vely"
+  plot_var_4 = "dfun"
+  plot_var_5 = "temp"
+  plot_var_6 = "mflx"
+  plot_var_7 = "rhoc"
+  plot_var_8 = "curv"
+  plot_var_9 = "nrmx"
+  plot_var_10 = "nrmy"
+  plot_var_11 = "omgm"
+  ignoreForcedPlot = true
