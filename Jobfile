@@ -21,6 +21,8 @@ schedular:
     - "#SBATCH --ntasks=10"
     - "#SBATCH -t 0-30:00"
     - "#SBATCH --job-name=fx-demo"
+    - "#SBATCH -A amowli_lab"
+    - "#SBATCH -p standard"
 
 # job configuration
 job:
